@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Music</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+
+  <header>
+    <div class="row">
+      <div class="col1"></div>
+      <div class="col2">Musica</div>
+      <div class="col3">
+        <% if current_user %>
+        <%= button_to("Logout", session_url, method: :delete) %>
+        <% else %>
+        <div>
+          <a href="<%= new_session_url %>">Login</a>
+          <br><br>
+          <a href="<%= new_user_url %>">Signup</a>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+</header>
+
+
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
